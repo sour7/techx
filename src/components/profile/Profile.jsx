@@ -23,11 +23,11 @@ import {
   arrayUnion,
 } from "firebase/firestore";
 
-const Profile = ({ switchNotification }) => {
+const Profile = ({ switchNotification, notify }) => {
   let user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
 
-  const [checked, setChecked] = React.useState(true);
+  const [checked, setChecked] = React.useState(notify);
 
   const [profilePic, setProfilePic] = useState(user.profilePic);
   const [updatepic, setUpdatepic] = useState([]);
@@ -53,7 +53,7 @@ const Profile = ({ switchNotification }) => {
     const file = e.target.files[0];
 
     const base64 = await convertBase64(file);
-    console.log(base64);
+    // console.log(base64);
     setProfilePic(base64);
 
     // setSelectedFiles([...selectedFiles,base64])

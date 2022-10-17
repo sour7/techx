@@ -95,7 +95,12 @@ function App() {
         <Route path="/allposts" element={<Allposts />}></Route>
         <Route
           path="/profile"
-          element={<Profile switchNotification={setSwitchNotification} />}
+          element={
+            <Profile
+              switchNotification={setSwitchNotification}
+              notify={switchNotification}
+            />
+          }
         ></Route>
         <Route path="/edit" element={<Edit />}></Route>
       </Routes>
